@@ -6,3 +6,7 @@ forge script script/SepoliaCCIP.s.sol:SepoliaCCIPScript --rpc-url "https://ether
 # For tokens
 # forge script script/Token.s.sol:TokenScript --rpc-url "https://base-sepolia-rpc.publicnode.com" --broadcast --chain-id 84532
 # forge script script/Token.s.sol:TokenScript --rpc-url "https://ethereum-sepolia-rpc.publicnode.com" --broadcast --chain-id 11155111
+
+# For Swap
+# forge script script/Swap.s.sol:SwapScript --rpc-url "https://base-sepolia-rpc.publicnode.com" --broadcast --chain-id 84532
+# forge script script/Swap.s.sol:SwapScript --rpc-url "https://ethereum-sepolia-rpc.publicnode.com" --broadcast --chain-id 11155111
