@@ -51,3 +51,10 @@ Both of these scenarios utilizes Account Abstraction by ZeroDev which is optiona
 | -------- | -------------------------------------------- |
 | Base     | `0xe4f30e770811328b57a346df19c72fb8a326caac` |
 | Ethereum | `0x2c5236499e0a2e2e7ce661a57f7223002e1bce99` |
+
+### 🦄 Swap Simulator
+
+| Chain    | Address                                      |
+| -------- | -------------------------------------------- |
+| Base     | `0xEd806AbB88FffbfB515d041DDC9048573E26d9b9` |
+| Ethereum | `0x3333108527DE4122ca2B10162df8884eab9c9837` |
