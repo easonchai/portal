@@ -7,3 +7,6 @@
 [submodule "dapp/lib/chainlink-local"]
 	path = dapp/lib/chainlink-local
 	url = https://github.com/smartcontractkit/chainlink-local
+[submodule "dapp/lib/openzeppelin-contracts"]
+	path = dapp/lib/openzeppelin-contracts
+	url = https://github.com/OpenZeppelin/openzeppelin-contracts
