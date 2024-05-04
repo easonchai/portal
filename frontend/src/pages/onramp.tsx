@@ -2,9 +2,15 @@ import Image from "next/image";
 import { IBM_Plex_Sans } from "next/font/google";
 import { ArrowRightIcon } from "@radix-ui/react-icons";
 import { ChainComboBox } from "@/components/ChainComboBox";
-import { TokenComboBox } from "@/components/TokenComboBox";
+import { TokenComboBox } from "@/components/OnRampTokenComboBox";
 import { Input } from "@/components/ui/input";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import {
+  GateFiDisplayModeEnum,
+  GateFiLangEnum,
+  GateFiSDK,
+} from "@gatefi/js-sdk";
+import crypto from "crypto";
 
 const inter = IBM_Plex_Sans({
   weight: ["300", "400", "500", "600", "700"],
@@ -12,19 +18,43 @@ const inter = IBM_Plex_Sans({
 });
 
 export default function Onramp() {
-  const [sourceAmount, setSourceAmount] = useState("0");
   const [sourceChain, setSourceChain] = useState("11155111:ethereum");
-  const [sourceToken, setSourceToken] = useState(
-    "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE:0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE:ethereum"
-  );
+  const overlayInstanceSDK = useRef<GateFiSDK | null>(null);
+  const [isOverlayVisible, setIsOverlayVisible] = useState(false);
 
-  useEffect(() => {
-    if (sourceToken.includes("ethereum")) {
-      setSourceAmount("0.001");
+  const handleOnClick = () => {
+    if (overlayInstanceSDK.current) {
+      if (isOverlayVisible) {
+        overlayInstanceSDK.current.hide();
+        setIsOverlayVisible(false);
+      } else {
+        overlayInstanceSDK.current.show();
+        setIsOverlayVisible(true);
+      }
     } else {
-      setSourceAmount("1");
+      const randomString = crypto.randomBytes(32).toString("hex");
+      overlayInstanceSDK.current = new GateFiSDK({
+        merchantId: `${process.env.NEXT_PUBLIC_UNLIMIT_MERCHANTID}`,
+        displayMode: GateFiDisplayModeEnum.Overlay,
+        nodeSelector: "#overlay-button",
+        lang: GateFiLangEnum.en_US,
+        isSandbox: true,
+        successUrl: "https://www.crypto.unlimit.com/",
+        walletAddress: "0x36a279136adDde960599fcA356369C04A96D387E",
+        email: "echai2905@gmail.com",
+        externalId: randomString,
+        defaultFiat: {
+          currency: "USD",
+          amount: "20",
+        },
+        defaultCrypto: {
+          currency: "USDT-BEP20",
+        },
+      });
     }
-  }, [sourceToken]);
+    overlayInstanceSDK.current?.show();
+    setIsOverlayVisible(true);
+  };
 
   return (
     <main
@@ -34,26 +64,27 @@ export default function Onramp() {
       <div className="flex flex-row w-full items-center justify-center gap-6">
         <div className="flex flex-col items-center justify-center gap-6 p-4 rounded-xl border border-blue-200">
           <div className="flex flex-row items-center justify-center gap-6">
-            <TokenComboBox
-              value={sourceToken}
-              setValue={setSourceToken}
-              isDest={false}
-            />
+            <TokenComboBox />
             <ChainComboBox value={sourceChain} setValue={setSourceChain} />
           </div>
           <div className="flex flex-row items-center justify-center gap-6 w-full">
             <Input
               type="number"
               placeholder="Amount"
-              value={sourceAmount}
+              value={1}
               className="w-full cursor-none"
               disabled
             />
-            <p className="font-bold uppercase">{sourceToken.split(":")[2]}</p>
+            <p className="font-bold uppercase">CCIP-BnM</p>
           </div>
         </div>
       </div>
-      <button className="font-bold p-4 rounded-lg bg-blue-500 text-white">
+
+      <div id="overlay-button"></div>
+      <button
+        className="font-bold p-4 rounded-lg bg-blue-500 text-white"
+        onClick={handleOnClick}
+      >
         Buy
       </button>
     </main>
