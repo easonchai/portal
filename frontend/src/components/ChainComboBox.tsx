@@ -20,18 +20,17 @@ import {
 
 const chains = [
   {
-    value: "11155111",
+    value: "11155111:ethereum",
     label: "Ethereum",
   },
   {
-    value: "84532",
+    value: "84532:base",
     label: "Base",
   },
 ];
 
-export function ChainComboBox() {
+export function ChainComboBox({ value, setValue }: any) {
   const [open, setOpen] = React.useState(false);
-  const [value, setValue] = React.useState("");
 
   return (
     <Popover open={open} onOpenChange={setOpen}>

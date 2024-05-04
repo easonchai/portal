@@ -20,7 +20,7 @@ export default function Home() {
           </button>
         </Link>
         <Link href="/onramp">
-          <button className="font-bold p-4 rounded-lg bg-amber-500 text-white">
+          <button className="font-bold p-4 rounded-lg bg-indigo-500 text-white">
             I am new to Web3
           </button>
         </Link>
