@@ -34,16 +34,17 @@ Both of these scenarios utilizes Account Abstraction by ZeroDev which is optiona
 
 ### 🪙 Tokens
 
-| Chain    | Token | Address                                      |
-| -------- | ----- | -------------------------------------------- |
-| Base     | PEPE  | `0xB67B10aB2CE4EA3586383922eFdA5996Aff2Cf94` |
-| Base     | MEME  | `0x59D651b4D50377333aa2794e30C4580136E8a113` |
-| Base     | HAHA  | `0x14111fb5763F03B26d623dA25EACd21d865F83E5` |
-| Base     | SCAM  | `0xf135900eFd642C1eBE6c88A383679FF295CFcecC` |
-| Ethereum | PEPE  | `0xDDbfe4d55164C39078d748f4af3349Ef844453dC` |
-| Ethereum | MEME  | `0x3a82c9E0e0126Be8f862ba47fbbfc925a3DB1D10` |
-| Ethereum | HAHA  | `0xeF8C2efaC6063e30E8C644930f53C01D96ad6C41` |
-| Ethereum | SCAM  | `0xd30285A169c3CA5c68Ff998f8dfB60c54c98F0a1` |
+| Chain    | Token    | Address                                      |
+| -------- | -------- | -------------------------------------------- |
+| Base     | PEPE     | `0xB67B10aB2CE4EA3586383922eFdA5996Aff2Cf94` |
+| Base     | MEME     | `0x59D651b4D50377333aa2794e30C4580136E8a113` |
+| Base     | HAHA     | `0x14111fb5763F03B26d623dA25EACd21d865F83E5` |
+| Base     | SCAM     | `0xf135900eFd642C1eBE6c88A383679FF295CFcecC` |
+| Ethereum | PEPE     | `0xDDbfe4d55164C39078d748f4af3349Ef844453dC` |
+| Ethereum | MEME     | `0x3a82c9E0e0126Be8f862ba47fbbfc925a3DB1D10` |
+| Ethereum | HAHA     | `0xeF8C2efaC6063e30E8C644930f53C01D96ad6C41` |
+| Ethereum | SCAM     | `0xd30285A169c3CA5c68Ff998f8dfB60c54c98F0a1` |
+| BSC      | CCIP-BnM | `0xbFA2ACd33ED6EEc0ed3Cc06bF1ac38d22b36B9e9` |
 
 ### ♻️ Chainlink CCIP
 
@@ -51,6 +52,7 @@ Both of these scenarios utilizes Account Abstraction by ZeroDev which is optiona
 | -------- | -------------------------------------------- |
 | Base     | `0xe4f30e770811328b57a346df19c72fb8a326caac` |
 | Ethereum | `0x2c5236499e0a2e2e7ce661a57f7223002e1bce99` |
+| BSC      | `0x603ae0Ae4a83E863c5FaA8F547a962D8B8e74Eb5` |
 
 ### 🦄 Swap Simulator
 
